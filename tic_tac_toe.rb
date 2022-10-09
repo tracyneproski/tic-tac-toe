@@ -21,6 +21,14 @@ module Board
 "  
 
 "
+ 1 | 2 | 3 
+---|---|---
+ 4 | 5 | 6  
+---|---|---
+ 7 | 8 | 9 
+" 
+
+"
 row 1 ->    |   |   
          ---|---|---
 row 2 ->    |   |   
@@ -53,20 +61,21 @@ line_2a = ["-","-","-","|","-","-","-","|","-","-","-","\n"]
 class Game
   include Board
 
-  print "Who wants to play Tic Tac Toe?"
-  print Board
-
-  print "Player 1 (X):"
-  gets player_1
-
-  print "Player 2 (O):"
-  gets player_2
-
-
   def initialize(player_1, player_2)
+    print "Who wants to play Tic Tac Toe?"
+    print Board
+
+    print "Player 1 (X):"
+    gets player_1
+  
+    print "Player 2 (O):"
+    gets player_2
+
     @player_1 = player_1
     @player_2 = player_2
   end
+
+
 
   def turn
     #which player
@@ -78,11 +87,17 @@ class Game
   end
 
   def winning_statement
-    print "#{@winning_player}, you have won! Congratulations!"    
+    print "\n#{@winning_player}, you have won! Congratulations!"    
   end
 
   def instructions
-    print "Using coordinates ('1a' for the topmost left square, for example), two players take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. If no row can be completed, the game ends in a draw."
+    print "\nUsing coordinates ('1a' for the topmost left square, for example), 
+two players take turns marking the spaces in a three-by-three grid 
+with X or O. The player who succeeds in placing three of their marks 
+in a horizontal, vertical, or diagonal row is the winner. If no row 
+can be completed, and there are no more empty spaces, the game ends 
+in a draw.\n"
+  end
 
 # 
 # turn taking logic (whose turn it is, what ends a turn, checking for win) 
