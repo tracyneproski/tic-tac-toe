@@ -13,12 +13,34 @@
 module Board
   #board?
 "
-|   |   
+   |   |   
 ---|---|---
-|   |   
+   |   |   
 ---|---|---
-|   |   
+   |   |   
 "  
+
+"
+row 1 ->    |   |   
+         ---|---|---
+row 2 ->    |   |   
+         ---|---|---
+row 3 ->    |   |   
+" 
+
+"
+         col col col
+          a   b   c
+          |   |   |
+          v   v   v
+row 1 ->    |   |   
+         ---|---|---
+row 2 ->    |   |   
+         ---|---|---
+row 3 ->    |   |   
+" 
+coord_board = "\n         col col col\n          a   b   c\n          |   |   |\n          v   v   v\nrow 1 ->    |   |   \n         ---|---|---\nrow 2 ->    |   |   \n         ---|---|---\nrow 3 ->    |   |   \n"
+
 "\n   |   |   \n---|---|---\n   |   |   \n---|---|---\n   |   |   \n"
 
 line_1 = "   |   |   \n"
@@ -56,13 +78,14 @@ class Game
   end
 
   def winning_statement
-    print "#{@winning_player}, you have won! Congratulations!"
+    print "#{@winning_player}, you have won! Congratulations!"    
   end
 
+  def instructions
+    print "Using coordinates ('1a' for the topmost left square, for example), two players take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. If no row can be completed, the game ends in a draw."
 
 # 
 # turn taking logic (whose turn it is, what ends a turn, checking for win) 
-# game logic first (how to choose where to move)
 # mash game logic result into board, print
 
 
