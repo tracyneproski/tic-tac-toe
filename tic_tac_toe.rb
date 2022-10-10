@@ -57,6 +57,19 @@ line_2 = "---|---|---\n"
 line_1a = [" "," "," ","|"," "," "," ","|"," "," "," ","\n"]
 line_2a = ["-","-","-","|","-","-","-","|","-","-","-","\n"]
 
+moves = [[],[],[]]
+
+winning_combos 
+123
+456
+789
+147
+258
+369
+159
+753
+dig
+
 
 class Game
   include Board
@@ -103,7 +116,35 @@ in a draw.\n"
 # turn taking logic (whose turn it is, what ends a turn, checking for win) 
 # mash game logic result into board, print
 
+# player should be its own class so you can store the player name and reference it
+# during the game. Also, you can set player_1 and player_2 TO the player class
+# so you know whether to put an X or an O.
+
 
 # maybe a class for the game itself, 2d array for lines 1
 # all game logic can be 
 
+'''
+class Computer
+  @@users = {}
+
+  def initialize(username, password)
+    @username = username
+    @password = password
+    @files = {}
+    @@users[:username] = password
+  end
+
+  def create(filename)
+    time = Time.now
+    @files[:filename] = time
+    puts "#{@username} created #{filename} at #{time}."
+  end
+
+  def Computer.get_users
+    return @@users
+  end
+end
+
+my_computer = Computer.new("bently", 1234)
+'''
