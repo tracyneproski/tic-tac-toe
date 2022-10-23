@@ -31,7 +31,7 @@ class TicTacToe
 
     @row_1 = ["1  ->  "," "," | "," "," | "," "," \n"]
     @row_2 = ["2  ->  "," "," | "," "," | "," "," \n"]
-    @row_3 = ["3  ->  "," "," | "," "," | "," "," \n"]
+    @row_3 = ["3  ->  "," "," | "," "," | "," "," \n\n"]
 
     @equivalent = 
     [["1a",1,@row_1[1]],
@@ -48,7 +48,7 @@ class TicTacToe
 
   def start
     # display player names
-    puts "New game started! #{@player_1} vs. #{@player_2}"
+    puts "New game started! #{@player_1} vs. #{@player_2}\n\n"
     #puts "To exit game at any point, type 'exit'"
     round
   end
@@ -127,13 +127,15 @@ class TicTacToe
       win_check(@moves_1, @player_1)
       win_check(@moves_2, @player_2)
 
-      if @moves_1.size == @moves_2.size 
+      if @moves_1.size == @moves_2.size
+        board  
         puts "#{@player_1} choose where to place an X:\n"
         move_x = gets.chomp
         turn(move_x, @moves_1)
         round
       else
-        puts "#{@player_2} choose where to place an O:\n"
+        board
+        puts "#{@player_2} choose where to place an O:\n"        
         move_o = gets.chomp
         turn(move_o, @moves_2)
         round

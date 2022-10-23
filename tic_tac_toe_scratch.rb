@@ -81,6 +81,13 @@ row_3 = ["3  ->  "," "," | "," "," | "," "," \n"]
 full_board = cols.join + arrows_1.join + arrows_2.join + row_1.join + hz_line.join + row_2.join + hz_line.join + row_3.join
 
 
+row_1 = ["1  ->  "," "," | "," "," | "," "," \n"]
+row_2 = ["2  ->  "," "," | "," "," | "," "," \n"]
+row_3 = ["3  ->  "," "," | "," "," | "," "," \n"]
+
+full_board = cols + arrows_1 + arrows_2 + row_1.join + hz_line + row_2.join + hz_line + row_3.join
+puts full_board
+
 moves = [[],[],[]]
 
 winning_combos 
