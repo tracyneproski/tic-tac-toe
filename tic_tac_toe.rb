@@ -37,11 +37,12 @@ class TicTacToe
     round
   end
 
-  #def exit move
-  #  if move == "exit"
-  #    puts "Thank you for playing!"
-  #  end
-  #end
+  def quit_check move
+    if move == "quit"
+      puts "Thanks for playing!"
+      exit
+    end
+  end
 
   def occupied move
     if @moves_1.include?(move.to_i) || @moves_2.include?(move.to_i)
@@ -49,14 +50,6 @@ class TicTacToe
       round
     end
   end
-
-  #def check_for_win moves
-  #  @winning_combos.each do |combo|
-  #    if (combo - moves).empty?
-  #      puts "Congratulations! You win!"
-  #    end
-  #  end
-  #end
 
   def play_again_check
     puts "Play again? Y or N\n"
@@ -67,6 +60,7 @@ class TicTacToe
       game = TicTacToe.new(@player_1, @player_2)
       game.start
     elsif play_again == "n" || play_again == "N"
+      puts "Thanks for playing!"
       exit
     else
       puts "Response not recognized. Please enter Y or N"
@@ -112,10 +106,15 @@ class TicTacToe
   end
 
   def turn move, moves
+    quit_check move
 
-    #exit move
-    occupied move
-    moves.push(move.to_i).sort!
+    if move.to_i.between?(1,9) 
+      occupied move
+      moves.push(move.to_i).sort!
+    else
+      puts "Response not recognized. Please try again."
+      round
+    end
   end
 
 end
