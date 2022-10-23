@@ -162,7 +162,8 @@ class TicTacToe
          
     else
       puts "Game is a tie."
-      exit
+      
+      play_again_check
     end
   end
 
