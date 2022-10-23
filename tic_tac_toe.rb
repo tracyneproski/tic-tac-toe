@@ -110,7 +110,7 @@ class TicTacToe
     if @equivalent.find{|coord, value, display| coord.include?(move)}
       return @equivalent.find{|coord, value, display| coord == move.downcase}[1]
     else
-      puts "Response not recognized. Please enter a valid coordinate."
+      puts "Response not recognized. Please enter a valid coordinate. Ex: '1a'"
       round
     end
   end
