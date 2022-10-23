@@ -15,10 +15,8 @@ Figure out how to display a Tic Tac Toe board in the terminal, how to let player
 
 What I used
 -
-List of things used
 Arrays mostly, instance variables
 
 What I learned
 -
-List of things learned
 How to use instance variable to update values more broadly.
