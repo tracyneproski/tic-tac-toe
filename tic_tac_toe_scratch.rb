@@ -47,15 +47,39 @@ row 2 ->    |   |
          ---|---|---
 row 3 ->    |   |   
 " 
-coord_board = "\n         col col col\n          a   b   c\n          |   |   |\n          v   v   v\nrow 1 ->    |   |   \n         ---|---|---\nrow 2 ->    |   |   \n         ---|---|---\nrow 3 ->    |   |   \n"
+
+"
+
+       a   b   c
+       |   |   |
+       v   v   v
+1 ->     |   |   
+      ---|---|---
+2 ->     |   |   
+      ---|---|---
+3 ->     |   |   
+" 
+
+coord_board = "       a   b   c\n       |   |   |\n       v   v   v\n1 ->     |   |   \n      ---|---|---\n2 ->     |   |   \n      ---|---|---\n3 ->     |   |   \n"
+
+
+old_coord_board = "\n         col col col\n          a   b   c\n          |   |   |\n          v   v   v\nrow 1 ->    |   |   \n         ---|---|---\nrow 2 ->    |   |   \n         ---|---|---\nrow 3 ->    |   |   \n"
 
 "\n   |   |   \n---|---|---\n   |   |   \n---|---|---\n   |   |   \n"
 
 line_1 = "   |   |   \n"
 line_2 = "---|---|---\n"
 
-line_1a = [" "," "," ","|"," "," "," ","|"," "," "," ","\n"]
-line_2a = ["-","-","-","|","-","-","-","|","-","-","-","\n"]
+cols = ["       a   b   c\n"]
+arrows_1 = ["       |   |   |\n"]
+arrows_2 = ["       v   v   v\n"]
+row_1 = ["1  ->  "," "," | "," "," | "," "," \n"]
+hz_line = ["      ---|---|---\n"]
+row_2 = ["2  ->  "," "," | "," "," | "," "," \n"]
+row_3 = ["3  ->  "," "," | "," "," | "," "," \n"]
+
+full_board = cols.join + arrows_1.join + arrows_2.join + row_1.join + hz_line.join + row_2.join + hz_line.join + row_3.join
+
 
 moves = [[],[],[]]
 

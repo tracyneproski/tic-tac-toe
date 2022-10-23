@@ -28,6 +28,11 @@ class TicTacToe
     [3,6,9],
     [1,5,9],
     [7,5,3],]
+
+    @row_1 = ["1  ->  "," "," | "," "," | "," "," \n"]
+    @row_2 = ["2  ->  "," "," | "," "," | "," "," \n"]
+    @row_3 = ["3  ->  "," "," | "," "," | "," "," \n"]
+
   end
 
   def start
@@ -79,6 +84,20 @@ class TicTacToe
     end  
   end 
 
+  def board
+    cols = "       a   b   c\n"
+    arrows_1 = "       |   |   |\n"
+    arrows_2 = "       v   v   v\n"
+    hz_line = "      ---|---|---\n"
+    
+    full_board = cols + arrows_1 + arrows_2 + @row_1.join + hz_line + @row_2.join + hz_line + @row_3.join
+    puts full_board
+  end
+
+  def update_board
+    
+  end
+
 
   def round
 
@@ -111,6 +130,7 @@ class TicTacToe
     if move.to_i.between?(1,9) 
       occupied move
       moves.push(move.to_i).sort!
+      update_board
     else
       puts "Response not recognized. Please try again."
       round
@@ -118,6 +138,7 @@ class TicTacToe
   end
 
 end
+
 
 puts "What is Player 1's name?"
 player_1 = gets.chomp
