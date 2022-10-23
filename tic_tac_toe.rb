@@ -34,7 +34,7 @@ class TicTacToe
     # display player names
     puts "New game started! #{@player_1} vs. #{@player_2}"
     #puts "To exit game at any point, type 'exit'"
-    #start gameplay command
+    round
   end
 
   #def exit move
@@ -43,11 +43,12 @@ class TicTacToe
   #  end
   #end
 
-  #def occupied move
-  #  if @moves_1.include?(move.to_i) || @moves_2.include?(move.to_i)
-  #    puts "Place is already occupied. Choose a different place:"
-  #  end
-  #end
+  def occupied move
+    if @moves_1.include?(move.to_i) || @moves_2.include?(move.to_i)
+      puts "Place is already occupied. Choose a different place:"
+      round
+    end
+  end
 
   #def check_for_win moves
   #  @winning_combos.each do |combo|
@@ -57,35 +58,40 @@ class TicTacToe
   #  end
   #end
 
-  def round
-    if @moves_1.size + @moves_2.size = 9
-      puts "Game is a tie."
-    elsif @winning_combos.each do |combo|
-      if (combo - @moves_1).empty?
-        puts "Congratulations, #{@player_1}! You win!"
-      end
+'''
+  @winning_combos.each do |combo|
+    if (combo - @moves_1).empty?
+      puts "Congratulations, #{@player_1}! You win!"
+    else (combo - @moves_2).empty?
+      puts "Congratulations, #{@player_2}! You win!"
+    end
+  end   
+'''
 
-      if (combo - @moves_2).empty?
-        puts "Congratulations, #{@player_2}! You win!"
-      end
-    else
+  def round
+    if (@moves_1.size + @moves_2.size) < 9
+       
       if @moves_1.size == @moves_2.size 
         puts "#{@player_1} choose where to place an X:\n"
+        move_x = gets.chomp
         turn(move_x, @moves_1)
         round
       else
         puts "#{@player_2} choose where to place an O:\n"
+        move_o = gets.chomp
         turn(move_o, @moves_2)
         round
       end
+         
+    else
+      puts "Game is a tie."
     end
   end
 
   def turn move, moves
-    move = gets.chomp
 
     #exit move
-    #occupied move
+    occupied move
 
     moves.push(move.to_i).sort!
   end

@@ -60,14 +60,16 @@ line_2a = ["-","-","-","|","-","-","-","|","-","-","-","\n"]
 moves = [[],[],[]]
 
 winning_combos 
-123
-456
-789
-147
-258
-369
-159
-753
+[
+  [1,2,3],
+  [4,5,6],
+  [7,8,9],
+  [1,4,7],
+  [2,5,8],
+  [3,6,9],
+  [1,5,9],
+  [7,5,3],
+]
 dig
 
 
@@ -148,3 +150,24 @@ end
 
 my_computer = Computer.new("bently", 1234)
 '''
+
+Ducky:
+
+start game
+whose turn (1)
+choose placement
+  check if exit
+  check if occupied
+otherwise add to player 1 guesses
+  check if win
+win means print and end
+not win means turn for player 2
+
+whose turn (2)
+chose placement
+  check if exit
+  check if occupied
+otherwise add to player 2 guesses
+  check if win
+  win means print and end
+not win means turn for player 1
