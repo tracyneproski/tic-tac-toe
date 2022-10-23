@@ -58,19 +58,41 @@ class TicTacToe
   #  end
   #end
 
-'''
-  @winning_combos.each do |combo|
-    if (combo - @moves_1).empty?
-      puts "Congratulations, #{@player_1}! You win!"
-    else (combo - @moves_2).empty?
-      puts "Congratulations, #{@player_2}! You win!"
+  def play_again_check
+    puts "Play again? Y or N\n"
+    
+    play_again = gets.chomp
+
+    if play_again == "y" || play_again == "Y" 
+      game = TicTacToe.new(@player_1, @player_2)
+      game.start
+    elsif play_again == "n" || play_again == "N"
+      exit
+    else
+      puts "Response not recognized. Please enter Y or N"
+      play_again_check
     end
-  end   
-'''
+  end
+
+  def win_check(moves, player)
+    @winning_combos.each do |combo|
+      if (combo - moves).empty?
+        puts "Congratulations, #{player}! You win!"
+
+        play_again_check    
+
+      end
+    end  
+  end 
+
 
   def round
+
     if (@moves_1.size + @moves_2.size) < 9
-       
+
+      win_check(@moves_1, @player_1)
+      win_check(@moves_2, @player_2)
+
       if @moves_1.size == @moves_2.size 
         puts "#{@player_1} choose where to place an X:\n"
         move_x = gets.chomp
@@ -85,6 +107,7 @@ class TicTacToe
          
     else
       puts "Game is a tie."
+      exit
     end
   end
 
@@ -92,7 +115,6 @@ class TicTacToe
 
     #exit move
     occupied move
-
     moves.push(move.to_i).sort!
   end
 
