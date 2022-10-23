@@ -34,7 +34,7 @@ class TicTacToe
     # display player names
     puts "New game started! #{@player_1} vs. #{@player_2}"
     #puts "To exit game at any point, type 'exit'"
-    
+    round
   end
 
   def exit move
@@ -44,7 +44,7 @@ class TicTacToe
   end
 
   def occupied move
-    if moves_1.include?(move.to_i) || moves_2.include(move.to_i)
+    if @moves_1.include?(move.to_i) || @moves_2.include?(move.to_i)
       puts "Place is already occupied. Choose a different place:"
     end
   end
@@ -59,7 +59,7 @@ class TicTacToe
 
 
   def round
-    if @moves_1.size = @moves_2.size 
+    if @moves_1.size == @moves_2.size 
       puts "#{@player_1} choose where to place an X:\n"
 
       move_x = gets.chomp
@@ -71,7 +71,6 @@ class TicTacToe
       check_for_win @moves_1
 
       round
-
     else
       puts "#{@player_2} choose where to place an O:\n"
 
