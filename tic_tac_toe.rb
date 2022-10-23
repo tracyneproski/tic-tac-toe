@@ -34,15 +34,15 @@ class TicTacToe
     @row_3 = ["3  ->  "," "," | "," "," | "," "," \n\n"]
 
     @equivalent = 
-    [["1a",1,@row_1[1]],
-      ["1b",2,@row_1[3]],
-      ["1c",3,@row_1[5]],
-      ["2a",4,@row_2[1]],
-      ["2b",5,@row_2[3]],
-      ["2c",6,@row_2[5]],
-      ["3a",7,@row_3[1]],
-      ["3b",8,@row_3[3]],
-      ["3c",9,@row_3[5]]]
+    [["1a", 1],
+      ["1b", 2],
+      ["1c", 3],
+      ["2a", 4],
+      ["2b", 5],
+      ["2c", 6],
+      ["3a", 7],
+      ["3b", 8],
+      ["3c", 9]]
 
   end
 
@@ -87,6 +87,7 @@ class TicTacToe
   def win_check(moves, player)
     @winning_combos.each do |combo|
       if (combo - moves).empty?
+        board
         puts "Congratulations, #{player}! You win!"
 
         play_again_check    
@@ -114,11 +115,29 @@ class TicTacToe
     end
   end
 
-"""
-  def update_board letter
-    
+
+  def update_board(space,letter)
+    if space == 1
+      @row_1[1] = letter
+    elsif space == 2
+      @row_1[3] = letter
+    elsif space == 3
+      @row_1[5] = letter
+    elsif space == 4
+      @row_2[1] = letter
+    elsif space == 5
+      @row_2[3] = letter
+    elsif space == 6
+      @row_2[5] = letter
+    elsif space == 7
+      @row_3[1] = letter
+    elsif space == 8
+      @row_3[3] = letter
+    else space == 9
+      @row_3[5] = letter
+    end                            
   end
-"""
+
 
   def round
 
@@ -131,13 +150,13 @@ class TicTacToe
         board  
         puts "#{@player_1} choose where to place an X:\n"
         move_x = gets.chomp
-        turn(move_x, @moves_1)
+        turn(move_x, @moves_1, "X")
         round
       else
         board
         puts "#{@player_2} choose where to place an O:\n"        
         move_o = gets.chomp
-        turn(move_o, @moves_2)
+        turn(move_o, @moves_2, "O")
         round
       end
          
@@ -147,7 +166,7 @@ class TicTacToe
     end
   end
 
-  def turn move, moves
+  def turn(move, moves, letter)
    
     quit_check move
     
@@ -156,7 +175,7 @@ class TicTacToe
     if move.to_i.between?(1,9) 
       occupied move
       moves.push(move.to_i).sort!
-      #update_board
+      update_board(move, letter)
     else
       puts "Response not recognized. Please try again."
       round
