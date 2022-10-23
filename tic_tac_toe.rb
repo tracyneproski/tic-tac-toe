@@ -33,6 +33,17 @@ class TicTacToe
     @row_2 = ["2  ->  "," "," | "," "," | "," "," \n"]
     @row_3 = ["3  ->  "," "," | "," "," | "," "," \n"]
 
+    @equivalent = 
+    [["1a",1,@row_1[1]],
+      ["1b",2,@row_1[3]],
+      ["1c",3,@row_1[5]],
+      ["2a",4,@row_2[1]],
+      ["2b",5,@row_2[3]],
+      ["2c",6,@row_2[5]],
+      ["3a",7,@row_3[1]],
+      ["3b",8,@row_3[3]],
+      ["3c",9,@row_3[5]]]
+
   end
 
   def start
@@ -94,10 +105,20 @@ class TicTacToe
     puts full_board
   end
 
-  def update_board
-    
+  def move_convert(move)
+    if @equivalent.find{|coord, value, display| coord.include?(move)}
+      return @equivalent.find{|coord, value, display| coord == move.downcase}[1]
+    else
+      puts "Response not recognized. Please enter a valid coordinate."
+      round
+    end
   end
 
+"""
+  def update_board letter
+    
+  end
+"""
 
   def round
 
@@ -125,12 +146,15 @@ class TicTacToe
   end
 
   def turn move, moves
+   
     quit_check move
+    
+    move = move_convert(move)
 
     if move.to_i.between?(1,9) 
       occupied move
       moves.push(move.to_i).sort!
-      update_board
+      #update_board
     else
       puts "Response not recognized. Please try again."
       round

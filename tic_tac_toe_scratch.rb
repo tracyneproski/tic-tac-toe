@@ -94,8 +94,32 @@ winning_combos
   [1,5,9],
   [7,5,3],
 ]
-dig
 
+board_locations
+if gets = "1a or 1A", move = 1, location = row_1[1]
+
+[
+["1a",1,@row_1[1]]
+["1b",2,@row_1[3]]
+["1c",3,@row_1[5]]
+["2a",4,@row_2[1]]
+["2b",5,@row_2[3]]
+["2c",6,@row_2[5]]
+["3a",7,@row_3[1]]
+["3b",8,@row_3[3]]
+["3c",9,@row_3[5]]
+]
+
+equivalent = 
+    [["1a",1,row_1[1]],
+      ["1b",2,row_1[3]],
+      ["1c",3,row_1[5]],
+      ["2a",4,row_2[1]],
+      ["2b",5,row_2[3]],
+      ["2c",6,row_2[5]],
+      ["3a",7,row_3[1]],
+      ["3b",8,row_3[3]],
+      ["3c",9,row_3[5]]]
 
 class Game
   include Board
