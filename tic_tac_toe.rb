@@ -13,8 +13,8 @@
 class TicTacToe
 
   def initialize(player_1, player_2)
-    @player_1 = player_1
-    @player_2 = player_2
+    @player_1 = player_1.to_s
+    @player_2 = player_2.to_s
     
     @moves_1 = []
     @moves_2 = []
@@ -54,7 +54,7 @@ class TicTacToe
   end
 
   def quit_check move
-    if move == "quit"
+    if move.downcase == "quit" || move.downcase == "q"
       puts "Thanks for playing!"
       exit
     end
@@ -72,10 +72,10 @@ class TicTacToe
     
     play_again = gets.chomp
 
-    if play_again == "y" || play_again == "Y" 
+    if play_again.downcase == "y"
       game = TicTacToe.new(@player_1, @player_2)
       game.start
-    elsif play_again == "n" || play_again == "N"
+    elsif play_again.downcase == "n"
       puts "Thanks for playing!"
       exit
     else
@@ -148,19 +148,21 @@ class TicTacToe
 
       if @moves_1.size == @moves_2.size
         board  
-        puts "#{@player_1} choose where to place an X:\n"
+        puts "#{@player_1} choose where to place an X or press q to quit:\n"
         move_x = gets.chomp
         turn(move_x, @moves_1, "X")
         round
       else
         board
-        puts "#{@player_2} choose where to place an O:\n"        
+        puts "#{@player_2} choose where to place an O or press q to quit:\n" 
+        puts "('q' to quit)\n"      
         move_o = gets.chomp
         turn(move_o, @moves_2, "O")
         round
       end
          
     else
+      board
       puts "Game is a tie."
       
       play_again_check
