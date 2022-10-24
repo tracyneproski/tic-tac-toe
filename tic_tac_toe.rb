@@ -91,7 +91,6 @@ class TicTacToe
         puts "Congratulations, #{player}! You win!"
 
         play_again_check    
-
       end
     end  
   end 
@@ -154,8 +153,7 @@ class TicTacToe
         round
       else
         board
-        puts "#{@player_2} choose where to place an O or press q to quit:\n" 
-        puts "('q' to quit)\n"      
+        puts "#{@player_2} choose where to place an O or press q to quit:\n"     
         move_o = gets.chomp
         turn(move_o, @moves_2, "O")
         round
@@ -171,8 +169,7 @@ class TicTacToe
 
   def turn(move, moves, letter)
    
-    quit_check move
-    
+    quit_check move    
     move = move_convert(move)
 
     if move.to_i.between?(1,9) 
@@ -184,7 +181,6 @@ class TicTacToe
       round
     end
   end
-
 end
 
 
